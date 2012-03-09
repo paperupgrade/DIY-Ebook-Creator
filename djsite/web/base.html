@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="wingerts" />
+	<meta name="keywords" content="design, css, cascading, style, sheets, xhtml, graphic design, w3c, web standards, visual, display" />
+	<meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design." />
+	<meta name="robots" content="all" />
+
+	<title> {% block title %} {% endblock %} - DIY Book Scanner - Ebook Creator (EBC) - GPL License - Sean Wingert</title>
+
+	<!-- to correct the unsightly Flash of Unstyled Content. http://www.bluerobot.com/web/css/fouc.asp -->
+	<script type="text/javascript"></script>
+	
+	<style type="text/css" media="all">
+		@import "/static/css/style.css";
+		@import "/static/css/redmond/jquery-ui-1.8.18.custom.css"
+	</style>
+	
+</head>
+
+<!--
+
+
+	This xhtml document is marked up to provide the designer with the maximum possible flexibility.
+	There are more classes and extraneous tags than needed, and in a real world situation, it's more
+	likely that it would be much leaner.
+	
+	However, I think we can all agree that even given that, we're still better off than if this had been
+	built with tables.
+
+
+-->
+
+<body onload="window.defaultStatus='DIY Book Scanner - Ebook Creator (EBC)';" id="css-zen-garden">
+{% load i18n %}
+
+{% block jquery %} 
+<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.diy.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.ui.dialog.js"></script>
+
+{% endblock %}
+
+{% block js1 %}
+{% endblock %}
+
+<div id="container">
+	<div id="intro">
+		<div id="pageHeader"><p></p>
+			<!--  <h1><span>DIY E-Book Wizard</span></h1>
+			<h2><span>hidden text here</span></h2> -->
+			<h1>DIY Book Scanner: E-Book Creator</h1> 
+			<h2>A wizard to create digital books from your book scanner</h2>
+		</div>
+
+		{% if vars.messages %} 
+		  <div id="messages">
+			{% for k,v in vars.messages.items %}
+				<div id="messageDiv{{ forloop.counter }}">
+					<h3 id="messageTitle{{ forloop.counter }}"><span>{{ k }}</span></h3>
+					<p class="p1" id="messageText{{ forloop.counter }}">{{ v }}</p>
+				</div>
+		    {% endfor %}
+		  </div>
+		{% endif %}
+		
+		{% if vars.errors %} 
+		  <div id="errors">
+			{% for k, v in vars.errors.items %}
+				<div id="errorDiv{{ forloop.counter }}">
+					<h3 id="errorTitle{{ forloop.counter }}"><span>{{ k }}</span></h3>
+					<p class="p1" id="messageText{{ forloop.counter }}">{{ v }}</p>
+				</div>
+		    {% endfor %}
+		  </div>
+		{% endif %}
+		
+		{% if vars.debug %} 
+		  <div id="debug">
+		  	<h3>Debugging info</h3>
+		  	{% for k, v in vars.items %}
+				<div id="debugDiv{{ forloop.counter }}">
+					<span class="bold Key">{{ k }}</span>: <span class="value">{{ v }} </span><br/>
+				</div>
+			{% endfor %}
+		  </div>
+		{% endif %}
+
+		{% block signpost %}
+		<div id="signpost">
+			<p class="p1"><img width="230" height="192" src="/static/img/red-exclamation-mark.png" alt="Htmlkitlogo.png"><span>A demonstration of what can be accomplished visually through <acronym title="Cascading Style Sheets">CSS</acronym>-based design. Select any style sheet from the list to load it into this page.</span></p>
+			<p class="p2"><span>Download the sample <a href="zengarden-sample.html" title="This page's source HTML code, not to be modified.">html file</a> and <a href="zengarden-sample.css" title="This page's sample CSS, the file you may modify.">css file</a></span></p>
+		</div>
+		{% endblock %}
+		
+	</div>
+
+	<div id="supportingText">
+		<hr/>
+		<div id="content">
+		{% block content %}
+		{% endblock %}
+		
+		<p class='buttonbar'>
+			{% block buttonbar %}
+			<a id="previous" href="{{ vars.previous }}"><img src="/static/img/Button-Previous-icon-50.png" width="50" height="50" alt="Previous button">{% trans 'Previous' %}</a>
+			<a id="next"     href="{{ vars.next }}">    <img src="/static/img/Button-Next-icon-50.png" width="50" height="50" alt="Next button">{% trans 'Next' %}</a>
+			{% endblock %} 
+		</p>
+		
+		</div>
+	</div>
+
+	
+	{% block listList %}
+	<div id="linkList">
+		<!--extra div for flexibility - this list will probably be the trickiest spot you'll deal with -->
+
+		{% block listList2 %}
+		<div id="linkList2">
+
+		<!-- If you're wondering about the extra &nbsp; at the end of the link, it's a hack to meet WCAG 1 Accessibility. -->
+		<!-- I don't like having to do it, but this is a visual exercise. It's a compromise. -->
+			<div id="lselect">
+				<!--  <h3 class="select"><span>Select a Design:</span></h3> -->
+				<!-- list of links begins here. There will be no more than 8 links per page -->
+				<ul>
+					<li><a href="/admin" title="AccessKey: A" accesskey="A">Administration</a></li>
+
+					<!--   <li><a href="/" title="AccessKey: b" accesskey="b">Sample #2</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+					<li><a href="/" title="AccessKey: c" accesskey="c">Sample #3</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+					<li><a href="/" title="AccessKey: d" accesskey="d">Sample #4</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+
+					<li><a href="/" title="AccessKey: e" accesskey="e">Sample #5</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+					<li><a href="/" title="AccessKey: f" accesskey="f">Sample #6</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+					<li><a href="/" title="AccessKey: g" accesskey="g">Sample #7</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li>
+
+					<li><a href="/" title="AccessKey: h" accesskey="h">Sample #8</a> by <a href="http://www.mezzoblue.com/" class="c">something</a>&nbsp;</li> 
+					-->
+				</ul>
+			</div>
+		{% endblock %}
+
+			<div id="larchives">
+				<h3 class="archives"><span>Archives:</span></h3>
+
+				<ul>
+
+					<!--  <li><a href="/" title="View next set of designs. AccessKey: n" accesskey="n"><span class="accesskey">n</span>ext designs &raquo;</a>&nbsp;</li>
+					<li><a href="/" title="View previous set of designs. AccessKey: p" accesskey="p">&laquo; <span class="accesskey">p</span>revious designs</a></li>
+					<li><a href="http://www.mezzoblue.com/zengarden/alldesigns/" title="View every submission to the Zen Garden. AccessKey: w" accesskey="w">Vie<span class="accesskey">w</span> All Designs</a></li> 
+					-->
+
+				</ul>
+
+			</div>
+		</div>
+		{% endblock %}
+
+	</div>
+		{% block footer %}
+		<div id="footer">
+			This project is still experimental! It has *lots* of issues. This is a DIY project, so please help us via the <a href="http://www.diybookscanner.org/forum/">forums!</a><br/>
+			Administration link: username and password: diy<br/>
+			<hr style="width: 90%"/>
+			Many thanks to the <a href="http://www.paperupgrade.org">Paper Upgrade Project</a>,  a 501(c)(3) educational public charity, for its generous support of this project.<br/>
+			This customizable software was written using the open source <a href="http://en.wikipedia.org/wiki/Django_%28web_framework%29">Django web framework</a> written in <a href="http://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a>.
+		</div>
+		{% endblock %}
+
+
+</div>
+
+<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+<!-- Add a background image to each and use width and height to control sizing, place with absolute positioning -->
+<!--   <div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div><div id="extraDiv3"><span></span></div>
+<div id="extraDiv4"><span></span></div><div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div> -->
+
+</body>
+</html>

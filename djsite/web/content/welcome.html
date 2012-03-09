@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block signpost %}
+<div id="signpost">
+	<p class="p1">
+		<img width="230" height="136" src="/static/img/welcome1-230.jpg" alt="Htmlkitlogo.png"> <span></span>
+	</p>
+	<p class="p2">&nbsp;</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3><span>Welcome!</span></h3>
+<p>This wizard (still experimental) will convert your DIY Book Scanner photos into an e-book. Currently, it is limited to copying and renaming images from your camera's memory cards. Help us develop this (see below for details).</p>
+<p> Before we begin, you will need the following:</p>
+<p>
+	<ol>
+		<li>Scantailor 
+			{% if vars.scantailor %}
+				<span class="success">ALREADY INSTALLED</span>
+			{% else %}
+				<span class="inlineError">NOT AUTO-DETECTED</span> 
+			{% endif %}
+			<a href="http://scantailor.sourceforge.net/?q=en/node/3">(Scantailor link)</a>
+		</li>
+		<li>Memory Cards from your camera(s) containing files of type: JPG, JPEG, TIF, TIFF, PNG, and/or JP2 </li>
+		<li>Browser cookies and Javascript (you already have these unless you manually disabled them)</li>
+		<li>Instead of Internet Explorer, please use <a href="http://www.firefox.com">Firefox</a>, <a href="https://www.google.com/chrome">Chrome</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>.</li>
+	</ol>
+</p>
+{% endblock %}
+
+{% block buttonbar %}
+<a id="next"     href="{{ vars.next }}">    <img src="/static/img/Button-Next-icon-50.png" width="50" height="50" alt="Next button">{% trans 'Start' %}</a>
+{% endblock %}

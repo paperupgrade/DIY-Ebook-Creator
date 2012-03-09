@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block signpost %}
+<div id="signpost">
+<p class="p1">
+	<img width="230" height="230" src="/static/img/save-230.png" alt="save button"> <span></span>
+	</p>
+<p class="p2">&nbsp;</p>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+        <p class="error">{% trans 'Please correct the error' %} {{ form.errors|pluralize }} {% trans 'below.' %} </p>
+    {% endif %}
+
+<h3><span>{% trans 'Project details' %}</span></h3>
+<p>{% trans 'What is the name of this project? This project (e.g. German Grammar) will be stored inside the location.' %}
+
+
+<div id="dialog-confirm" class="hidden" title="{% trans 'Are you sure?' %}">
+	<p><span class="ui-icon ui-icon-alert" style="margin:0 7px 20px 0;"></span>{% trans 'Please confirm your selections. If you later return to this page and change your answers, please note that this program will not delete the previously created folder(s).' %}</p>
+</div>
+	
+	<form id="jqueryForm" method="post" action=""> 
+		<table class="form">
+		<tr>
+			<th>Title</th>
+			<td>{{ form.title }}</td>
+			{% if form.title.errors %}
+			</tr>
+			<tr>
+				<td></td>
+				<td> {{ form.title.errors }}</td>
+			</tr>
+			{% endif %}
+		</tr>
+		<tr>
+			<th>{% trans 'Location' %}</th>
+			<td>{{ form.path }}</td>
+			{% if form.path.errors %}
+			</tr>
+			<tr>
+				<td></td>
+				<td> {{ form.path.errors }}</td>
+			</tr>
+			{% endif %}
+
+				
+		<tr class="hidden">
+			<th>Date created</th>
+			<td>{{ form.date_created }}</td>
+		</tr>
+		</table>
+
+		<input class="hidden" type="submit" value="{% trans 'Submit' %}"/>
+			
+		</div>
+    </form>
+{% endblock %}
+
+{% block buttonbar %}
+<a id="previous"   href="{{ vars.previous }}"><img src="/static/img/Button-Previous-icon-50.png" width="50" height="50" alt="Previous button">{% trans 'Previous' %}</a>
+<a id="jqueryNext" href="{{ vars.next }}"><img src="/static/img/Button-Next-icon-50.png" width="50" height="50" alt="Next button">Next</a>
+{% endblock %}
+

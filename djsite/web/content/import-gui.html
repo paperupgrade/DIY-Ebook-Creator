@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} Import Pages {% endblock %}
+
+{% block signpost %}
+<div id="signpost">
+<p class="p1">
+	<img width="230" height="139" src="/static/img/copy-sdcard-230.png" alt="save button"> <span></span>
+	</p>
+<p class="p2">&nbsp;</p>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+        <p class="error">{% trans 'Please correct the error' %} {{ form.errors|pluralize }} {% trans 'below.' %} </p>
+    {% endif %}
+
+<div id="dialog-progress" class="hidden" title="{% trans 'Import Pages' %}">
+	<p><span class="" style="margin:0 7px 20px 0;"></span>
+	 {% trans 'I am now importing and renaming your files. NOTE: Clicking CANCEL will (currently) not stop the import.' %} </p> 
+	  <div id="progressbar"></div>
+	  <br/>
+	  <p id="progressbar-details"></p>
+</div>
+
+
+<h3><span>{% trans 'Import Pages' %}</span></h3>
+<p style="margin-left: 240px">
+{% trans 'Step 1: Unplug your memory card' %} <br/>
+	  <button id="step1" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	    <span class="ui-button-text">{% trans 'Click to confirm' %}</span>
+	  </button>
+	  </br> <br/> 
+
+	  {% trans 'Step 2: Plug in your memory card (WAIT until PC recognizes it)' %} <br/>
+	  <button id="step2" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	    <span class="ui-button-text">{% trans 'Click to confirm' %}</span>
+	  </button>  
+</p>
+
+	  {% trans 'Step 3: Verify/Enter photo folder (e.g. G:\DCIM or /camera/DCIM) - NO SPACES PLEASE' %} <br/>
+	  	<form style="margin-left: 240px;" id="step3">
+		<label class="card-label" for="mountpoint">Directory</label>
+		<input id='step3-directory' name="mountpoint" type="text" value="{% trans 'Perform step 1' %}"/>
+		</form>
+<p style="margin-left: 250px">		
+		<br/>
+	  {% trans 'Step 4: Which card was this?' %}
+</p>
+
+<div id="insert-cards" class="indented-left">
+	<button id="left-card" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	   <span class="ui-button-text">{% trans 'LEFT (1,3,5,...)' %}</span>
+	</button> 
+	
+	<button id="right-card" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	   <span class="ui-button-text">{% trans 'RIGHT (2,4,6...)' %}</span>
+	</button> 
+	
+	<button id="both-card" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	   <span class="ui-button-text">{% trans 'SINGLE (1,2,3,...)' %}</span>
+	</button> 
+</div>	
+	
+{% endblock %}
+
+{% block buttonbar %}
+<a id="previous"   href="{{ vars.previous }}"><img src="/static/img/Button-Previous-icon-50.png" width="50" height="50" alt="Previous button">{% trans 'Previous' %}</a>
+<a id="next" href="{{ vars.next }}"><img src="/static/img/Button-Next-icon-50.png" width="50" height="50" alt="Next button">Next</a>
+{% endblock %}
+

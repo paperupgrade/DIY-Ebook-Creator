@@ -1,0 +1,463 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+body { 
+	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753; 
+	/* background: #fff url(blossoms.jpg) no-repeat bottom right; */ 
+	margin: 0; 
+	padding: 0;
+	}
+p { 
+	margin-top: 0; 
+	text-align: justify;
+	font-size: 1.2em;
+	}
+h3 { 
+	font: italic normal 1.4em georgia, sans-serif;
+	letter-spacing: 1px; 
+	margin-bottom: 0; 
+	color: #7D775C;
+	}
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #5858FA;
+	}
+a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #8181F7;
+	}
+a:hover, a:active { 
+	text-decoration: underline; 
+	color: #9685BA;
+	}
+acronym {
+	border-bottom: none;
+	}
+ol {
+	list-style-position: inside;
+}
+ul.errorlist {
+        margin: 0;
+        padding: 0;
+        list-style-position: inside;
+        display: inline;
+    }
+.errorlist li {
+	    color: red;
+	    list-style: none;
+	    display: inline;
+	    padding: 0 1em;
+	    /* 
+        background-color: pink;
+        border: solid 1px red;
+        color: black;
+        display: block;
+        font-size: 10px;
+        margin: 0 0 3px;
+        padding: 4px 5px; */
+}
+
+/* specific divs */
+#container {
+	/* background: #fff url(teacup.jpg) no-repeat top left; */ 
+	padding: 0 0 0 10px;  
+	margin: 10px;
+	border: 10px solid #C7CDD8;
+	min-width: 660px; 
+	position: relative; 
+	}
+
+#intro { 
+	min-width: 470px;
+	}
+
+/* using an image to replace text in an h1. This trick courtesy Douglas Bowman, http://www.stopdesign.com/articles/css/replace-text/ */
+#pageHeader h1 { 
+	/* background: transparent url(../img/kit-150.png) no-repeat top left;  
+	width: 219px; 
+	height: 114px; 
+	float: left; */
+	text-align: center;
+	font: italic normal 2.2em georgia, sans-serif;
+	}
+#pageHeader h1 span {
+	/* display:none; */
+	}
+#pageHeader h2 { 
+	/* background: transparent url(../img/laptop-146.png) no-repeat top left;  
+	width: 200px; 
+	height: 114px; 
+	float: right; */
+	text-align: center;
+	font: italic normal 2em georgia, sans-serif;
+	
+	}
+#pageHeader h2 span {
+	/* display:none; */
+	}
+#pageHeader h3 {
+	text-align: center;
+	font: italic normal 2em georgia, sans-serif;
+}
+#pageHeader h4 {
+	text-align: center;
+	font: italic normal 1.7em georgia, sans-serif;
+}
+#pageHeader {
+	padding-top: 20px;
+}
+
+#signpost {
+	clear:both; 
+	margin: 20px 20px 20px 10px; 
+	width: 230px; 
+	float: left;
+	}
+#signpost p {
+	font: italic 10pt/22pt georgia; 
+	text-align:center;
+	}
+
+#messages {
+	clear: right; 
+	padding: 0px 5px 0 10px;
+	border: 1px solid #B2B9C4;
+	background: #F1F2EF no-repeat left top;
+	margin-right: 170px;
+	}
+
+	
+#messages h3, #messages p, #debug h3, #debug p {
+	text-align: center;
+	padding: 0;
+}
+
+#debug {
+	clear: right;
+	border: 1px solid #B2B9C4;
+	background: #F1F2EF no-repeat left top;
+	padding: 0 5px;
+	margin: 0 5px;
+}
+
+#debug p, #debug h3 {
+	font-size: 1em;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+#debug .value {
+	margin-left: 10px;
+}
+	
+#supportingText {
+	clear: right;
+	padding-left: 10px; 
+	margin-bottom: 5px;
+	margin-right: 170px;
+	}
+
+#footer {
+	text-align: center;
+	/* text-align: center;
+	background-color: lightgreen;
+	border: solid 1px green;
+	color: black;
+	font-size: 10px;
+	margin: 0 0 3px;
+	padding: 4px 5px; */
+}
+	
+#footer a:link, #footer a:visited { 
+	margin-right: 0px; 
+	}
+
+#linkList {
+	/* margin-left: 600px; */ 
+	position: absolute; 
+	top: 0; 
+	right: 0;
+	}
+#linkList2 { 
+	font: 10px verdana, sans-serif; 
+	/* background: transparent url(paper-bg.jpg) top left repeat-y; */ 
+	padding: 0; 
+	margin-top: 30px; 
+	width: 130px; 
+	}
+#linkList h3.select { 
+	/* background: transparent url(h3.gif) no-repeat top left; */ 
+	margin: 0px 0 5px 0; 
+	width: 97px; 
+	height: 16px; 
+	}
+#linkList h3.select span {
+	display:none
+	}
+#linkList h3.favorites { 
+	/* background: transparent url(h4.gif) no-repeat top left; */ 
+	margin: 25px 0 5px 0; 
+	width: 60px; 
+	height: 18px; 
+	}
+#linkList h3.favorites span {
+	display:none
+	}
+#linkList h3.archives { 
+	/* background: transparent url(h5.gif) no-repeat top left; */ 
+	margin: 25px 0 5px 0; 
+	width:57px; 
+	height: 14px; 
+	}
+#linkList h3.archives span {
+	display:none
+	}
+#linkList h3.resources { 
+	/* background: transparent url(h6.gif) no-repeat top left; */ 
+	margin: 25px 0 5px 0; 
+	width:63px; 
+	height: 10px; 
+	}
+#linkList h3.resources span {
+	display:none
+	}
+
+
+#linkList ul {
+	margin: 0;
+	padding: 0;
+	}
+#linkList li {
+	line-height: 2.5ex; 
+	/* background: transparent url(cr1.gif) no-repeat top center; */ 
+	display: block; 
+	padding-top: 5px; 
+	margin-bottom: 5px;
+	list-style-type: none;
+	}
+#linkList li a:link {
+	color: #988F5E;
+	}
+#linkList li a:visited {
+	color: #B3AE94;
+	}
+
+
+#extraDiv1 {
+	/* background: transparent url(cr2.gif) top left no-repeat; */ 
+	position: absolute; 
+	top: 40px; 
+	right: 0; 
+	width: 148px; 
+	height: 110px;
+	}
+.accesskey {
+	text-decoration: underline;
+	}
+.clearboth{
+	clear: both;
+}
+
+.p1 {
+	font-size: 1.3em;
+}
+
+.error {
+	background-color: pink;
+	border: solid 1px red;
+	color: black;
+	margin: 0 0 3px 250px;
+	padding: 4px 5px;
+}
+
+.inlineError {
+	background-color: pink;
+	border: solid 1px red;
+	color: black;
+	margin: 5px;
+	padding: 4px 5px;
+}
+
+	
+.success {
+	background-color: lightgreen;
+	border: solid 1px green;
+	color: black;
+	font-size: 10px;
+	margin: 0 0 3px;
+	padding: 4px 5px;
+}
+
+.highlight {
+	background-color: lightgreen;
+	border: solid 1px green;
+	color: black;
+	margin: 0 0 3px;
+	padding: 4px 5px;
+}
+
+.buttonbar {
+	text-align: right;
+	border: none 0;
+}
+
+.buttonbar img {
+	margin-left: 50px;
+	margin-right: 5px;
+	border: none 0;
+}
+
+.buttonbar a {
+	margin-left: 50px;
+	margin-right: 5px;
+	border: none 0;
+}
+
+.buttonbar span {
+	text-align: center;
+}
+
+.previous {
+    background: url('/static/img/Button-Previous-icon-50.png') no-repeat top center;
+  	width: 100px;
+  	height: 150px;
+  	border: 0;
+  	font: 75% georgia, sans-serif;
+	font-weight: bold; 
+	font-size: 1.2em; 
+	color: darkgray;
+}
+
+.previous:hover {
+	text-decoration: underline; 
+	color: #9685BA;
+}
+
+.next {
+    background: url('/static/img/Button-Next-icon-50.png') no-repeat top center;
+  	width: 100px;
+  	height: 50px;
+  	font: 75% georgia, sans-serif;
+	font-weight: bold; 
+	font-size: 1.2em; 
+	color: darkgray;
+	border: 0;
+	vertical-align: top;
+	float:right;
+}
+
+.next:hover {
+	text-decoration: underline; 
+	color: #9685BA;
+}
+
+.submitIcon {
+	text-align: right; 
+	margin-top: 20px;
+}
+
+.red {
+	color: red;
+}
+
+form {
+	margin-right: 170px;
+}
+
+form table  {
+	/* border: 1px solid black; */
+    table-layout: fixed;
+    width: 90%;
+}
+
+form table th {
+    /* border: 1px solid black; */
+    overflow: hidden;
+    width: 10%;
+    text-align: left;
+}
+
+form table td {
+    /* border: 1px solid black; */
+    overflow: hidden;
+    width: 80%;
+}
+
+form table td input {
+	width: 80%;
+}
+
+#jqueryForm {
+	margin-bottom: 5em;
+}
+
+.hidden {
+	display: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/* .previousBySubmitNext {
+	width: 50px;
+	text-align: right;
+} */
+
+#errors {
+	clear: right; 
+	padding: 0px 5px 0 10px;
+	background-color: pink;
+	border: solid 1px red;
+	margin: 0 5px;
+	}
+	
+#errors h3, #errors p {
+	text-align: center;
+	padding: 0;
+}
+
+#insert-cards {
+	text-align: center;
+	margin-bottom: 5em;
+}
+
+#insert-cards button {
+	margin: 0 .1em;
+}
+
+.space-below {
+	margin-bottom: 3em;
+}
+
+.card-label {
+	margin-right: 1em;
+}
+
+#step3-directory {
+	width: 70%;
+}
+
+.indented-left {
+	margin-left: 250px;
+}
+
+#progressbar-details {
+	text-align: center;
+}
